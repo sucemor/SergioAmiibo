@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../ficheros/usuarios.js"></script>
+    <link rel="stylesheet" href="../estilos/main.css" />
+    <title>Inicio de sesión</title>
+</head>
+<body>
+    <div class="general">
+        <div class="rectangulo">
+            <h1>Iniciar sesión</h1>
+            
+            <form action="#" class="rectangulo-sesion">
+                
+                <div class="cuadrados">
+                    <label for="nombre" class="cuadrados_texto">Nombre</label>
+                    <input type="text" name="nombreSesion" id="nombreSesion" class="cuadrados_input" placeholder="Ejemplo de nombre" minlength="3">
+                </div>  
+                <br>
+                <div class="cuadrados">
+                    <label for="contrasena" class="cuadrados_texto">Contraseña</label>
+                    <input type="text" name="contrasenaSesion" id="contrasenaSesion" class="cuadrados_input"  placeholder="Ejemplo de contraseña"
+                    minlength="3">
+                </div>
+
+                <button class="rectangulo-sesion-boton" name="botonSesion" id="botonSesion" onclick="iniciarSesion()">Iniciar sesión</button>
+            </form>
+
+            <!-- <p class="rectangulo-enlace">¿No estás registrado?
+                <a href="#"
+                class="rectangulo-enlace-a"
+                >¡Regístrate!</a>
+            </p> -->
+        </div>
+    </div>
+</body>
+</html>

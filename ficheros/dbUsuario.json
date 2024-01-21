@@ -1,0 +1,19 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "usuario": "pepe",
+      "contrasena": "1234"
+    },
+    {
+      "id": "2",
+      "usuario": "samu",
+      "contrasena": "samu"
+    },
+    {
+      "id": "0cba",
+      "usuario": "Federico",
+      "contrasena": "1232"
+    }
+  ]
+}

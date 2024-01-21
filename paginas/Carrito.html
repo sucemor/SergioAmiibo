@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="../ficheros/amiibos.js"></script>
+    <link rel="stylesheet" href="../estilos/main.css" />
+    <title>Carrito</title>
+</head>
+<body onload="cargarCarrito()">
+
+    <header class="header">
+        <div class="header-general">
+          <p class="header-general-nombre">
+            AmiibosLand!
+          </p>
+          <div class="header-general-medio">
+            <p class="header-general-texto"><a href="./inicio.html">Inicio</a></p>
+            <div class="header-general-centro">
+              <p class="header-general-texto"><a href="./Productos.html">Productos</a></p>
+            </div>
+            <p class="header-general-texto">
+              <a href="./Contacto.html">Contacto</a>
+            </p>
+            <p class="header-general-texto">
+              <a href="./Carrito.html"><i id="iconoCarrito" class="fa-solid fa-cart-shopping" style="color: #63E6BE;"></i></a>
+            </p>
+            <p class="header-general-texto">
+                <a href="./iniciarSesion.html">Cerrar sesión</a>
+              </p>
+          </div>
+        </div>
+      </header>
+
+
+    <main class="carrito">
+        <div class="carrito-general" id="carro">
+        </div>
+        <div>
+            <h2>Introduzca su correo</h2>
+            <input type="text" name="correo" id="correo">
+            <button onclick="enviarCorreo()">Enviar correo</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-social-media">
+          <ul class="footer-social-media-lista">
+            <li class="footer-social-media-lista-item">
+              <a href="#" class="footer-social-media-lista-item-link"
+                ><i class="fab fa-facebook-square"></i
+              ></a>
+            </li>
+  
+            <li class="footer-social-media-lista-item">
+              <a href="#" class="footer-social-media-lista-item-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+  
+            <li class="footer-social-media-lista-item">
+              <a href="#" class="footer-social-media-lista-item-link"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </li>
+  
+            <li class="footer-social-media-lista-item">
+              <a href="#" class="footer-social-media-lista-item-link"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer-copyright">
+          <p class="footer-copyright-paragraph">
+            &copy; Copyright. 2024. AmiibosLand! "Samuel Uceda Moreno". Todos los
+            derechos reservados.
+          </p>
+        </div>
+      </footer>
+</body>
+</html>
+
+<script>
+    function enviarCorreo() {
+  // Obtén los datos del localStorage y conviértelos de nuevo a un array de objetos
+  let carrito = JSON.parse(localStorage.getItem('miCarro')) || [];
+
+  let inputCorreo = document.getElementById("correo");
+  let correo = inputCorreo.value + "";
+  
+  if (carrito.length > 0) {
+    // Inicializa emailjs
+    emailjs.init("user_tu_usuario_emailjs");
+
+    // Define el servicio, plantilla y parámetros para el correo
+    const servicioID = "tu_servicio_id";
+    const plantillaID = "tu_plantilla_id";
+    const to_name = correo;
+    const from_name = "sucemor1307@g.educaand.es";
+
+    // Crea el cuerpo del mensaje con los detalles de los productos en el carrito
+    let cuerpoMensaje = carrito.map((elemento) => `
+        <div class="main-amiibos-individual">
+          <img class="amiibo-imagen" src="${elemento.imagen}" alt="${elemento.nombreAmiibo}">
+          <div class="main-amiibos-texto-boton">
+            <div class="main-amiibos-individual-texto">
+              <h3 class="amiibo-nombre">${elemento.nombreAmiibo}</h3>
+              <p class="amiibo-franquicia">${elemento.franquincia}</p>
+              <p class="amiibo-precio">${elemento.precio}€</p>
+              <p>Unidades: ${elemento.unidades}</p>
+              <p>Tipo: ${elemento.tipo}</p>
+              <p>Personaje: ${elemento.personaje}</p>
+              <p>Juego de origen: ${elemento.juego}</p>
+            </div>
+          </div>
+          
+          <div class="interactuar">
+            <input type="text" class="boton-modificar" id="cambiarUnidades" placeholder="Modificar unidades">
+            <button onclick="modificar('${elemento.nombreAmiibo}', '${elemento.unidades}')">Modificar</button>
+            <button onclick="eliminar('${elemento.nombreAmiibo}')">Eliminar</button>
+          </div>
+        </div>
+      `).join('');
+
+    const parametros = { to_name, from_name, message: cuerpoMensaje };
+
+    // Envía el correo
+    emailjs.send(servicioID, plantillaID, parametros)
+      .then((response) => {
+        alert("Se le ha enviado un correo a la dirección " + correo);
+        console.log("Correo enviado con éxito:", response);
+      })
+      .catch((error) => {
+        console.error("Error al enviar el correo:", error);
+      });
+  }
+}
+
+</script>
