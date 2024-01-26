@@ -1,2 +1,1 @@
-# SergioAmiibo
-https://github.com/sucemor/SergioAmiibo.git
+https://sucemor.github.io/SergioAmiibo/paginas/iniciarSesion
