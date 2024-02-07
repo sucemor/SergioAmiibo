@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/usuarios",
+      "destination": "/usuarios"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "usuario": "pepe",
+      "contrasena": "1234",
+      "token": "tokenPepe"
+    },
+    {
+      "id": 2,
+      "usuario": "samu",
+      "contrasena": "samu",
+      "token": "tokenSamu"
+    },
+    {
+      "id": 3,
+      "usuario": "federico",
+      "contrasena": "1232",
+      "token": "tokenFederico"
+    }
+  ]
+}

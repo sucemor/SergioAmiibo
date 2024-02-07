@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module"  src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="../ficheros/Amiibo.js"></script>
+    <script src="../ficheros/carrito.js"></script>
+    <script src="../ficheros/controlador.js"></script>
+    <script src="../ficheros/filtro.js"></script>
+    <link rel="stylesheet" href="../estilos/main.css" />
+    <title>Productos</title>
+  </head>
+  <body onload="cargarProductos()">
+    <header class="header">
+      <div class="header-general">
+        <p class="header-general-nombre">
+          <a href="#">AmiibosLand!</a>
+        </p>
+        <div class="header-general-medio">
+          <p class="header-general-texto"><a href="./inicio.html">Inicio</a></p>
+          <div class="header-general-centro">
+            <p class="header-general-texto"><a href="./Productos.html">Productos</a></p>
+          </div>
+          <p class="header-general-texto">
+            <a href="./Contacto.html">Contacto</a>
+          </p>
+          <p class="header-general-texto">
+            <a href="./Carrito.html"><i id="iconoCarrito" class="fa-solid fa-cart-shopping" style="color: #63E6BE;"></i></a>
+          </p>
+        </div>
+        
+        <p class="header-general-texto">
+          <a href="./iniciarSesion.html">Cerrar sesión</a>
+        </p>
+      </div>
+    </header>
+
+
+    <main class="main">
+      <section class="main-categorias" id="caracteristicas">
+        <div>
+          <input type="radio" onclick="aplicarCategoria()" name="tipo" value="productos" checked> <label>Productos</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="tipo" value="cartas"> <label>Cartas</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="tipo" value="figuras"> <label>Figuras</label><br>
+        </div>
+        
+        <div>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="todos" checked> <label>Todos</label><br>
+
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="ssb"> <label>Super Smash Bros.</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="mss"> <label>Mario Sports Superstars</label><br>
+
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="lz"> <label>The Legend of Zelda</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="ac"> <label>Animal Crossing</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="s"> <label>Splatoon</label><br>
+          
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="mh"> <label>Moster Hunter</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="smb"> <label>Super Mario Bros.</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="franquicia" value="otros"> <label>Otros</label><br>
+        </div>
+
+        
+        <div>
+          <input type="radio" onclick="aplicarCategoria()" name="orden" value="ascendente" checked> <label>Ascendente</label><br>
+          <input type="radio" onclick="aplicarCategoria()" name="orden" value="descendente"> <label>Descendente</label><br>
+        </div>
+      </section>
+      <div class="main-amiibos" id="main-amiibos"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-social-media">
+        <ul class="footer-social-media-lista">
+          <li class="footer-social-media-lista-item">
+            <a href="#" class="footer-social-media-lista-item-link"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+          </li>
+
+          <li class="footer-social-media-lista-item">
+            <a href="#" class="footer-social-media-lista-item-link"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+
+          <li class="footer-social-media-lista-item">
+            <a href="#" class="footer-social-media-lista-item-link"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+          </li>
+
+          <li class="footer-social-media-lista-item">
+            <a href="#" class="footer-social-media-lista-item-link"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-copyright">
+        <p class="footer-copyright-paragraph">
+          &copy; Copyright. 2024. AmiibosLand! "Samuel Uceda Moreno". Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</html>
